@@ -19,7 +19,7 @@ def purple_text(string):
 
 
 def title_screen():
-    global player_name
+    global player_name, player_sex
     
     while True:
         skip = (input("Do you want to skip dialogue? For the story I recommend to say no. Yes/No: "))
@@ -35,6 +35,8 @@ def title_screen():
             print(f"{purple_text("I")} am {purple_text("Aetherion")}, the ruler of {green_text("Dark Forest")}.")
             sleep(4)
             player_name = input(f"How should {purple_text("I")} refer to {blue_text("you")}? ")
+            sleep(1)
+            player_sex = input(f"Are {blue_text("you")} male or female? ")
             sleep(1)
             print(f"Yet again, welcome, {blue_text(player_name)}.\n")
             sleep(4)
@@ -60,6 +62,8 @@ def title_screen():
             print(f"{blue_text("You")} skipped the dialogue!")
             sleep(4)
             player_name = input("What is your name? ")
+            sleep(1)
+            player_sex = input(f"Are {blue_text("you")} male or female? ")
             sleep(4)
             print(f"And there, {blue_text("your")} adventure starts.\n")
             sleep(8)
@@ -85,9 +89,9 @@ def initialize_game(player_name):
     bare_hands = game.bare_hands
 
     print(f"Here is {blue_text("your")} {green_text("sword")}.")
-    player.obtain_item(rusty_sword)
     player.obtain_item(bare_hands)
-
+    player.obtain_item(rusty_sword)
+   
     print(f"With this in mind, your first {red_text("fight")} shall come along.\n")
     sleep(4)
 
@@ -126,7 +130,7 @@ def third_kill():
 
     answer = input(f"\nAnything you want to tell {purple_text("me")}? ")
     if answer.lower() == "aetherion":
-        print(f"{blue_text("You")} may have noticed that {purple_text("I")} no longer take pauses in my speech.")
+        print(f"\n{blue_text("You")} may have noticed that {purple_text("I")} no longer take pauses in my speech.")
         sleep(2)
         print(f"This is caused purely by {purple_text("Philip")} being too lazy to put sleep() statements everywhere.")
         sleep(4)
@@ -142,7 +146,7 @@ def third_kill():
         sleep(8)
 
     else:
-        print("Nothing?")
+        print("\nNothing?")
         sleep(6)
         print(f"{purple_text("I")} see.")
         sleep(2)
